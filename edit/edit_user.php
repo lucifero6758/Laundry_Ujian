@@ -27,7 +27,7 @@ $baris_user = mysqli_fetch_assoc($query_user);
                 </tr>
                 <tr>
                     <td>Password</td>
-                    <td><input type="text" class="form-control" name="password"></td>
+                    <td><input type="text" class="form-control" name="password" required></td>
                 </tr>
                 <tr>
                     <td>Role User</td>

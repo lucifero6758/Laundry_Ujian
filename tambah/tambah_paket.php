@@ -13,7 +13,7 @@
                         <hr class="mb-6">
                         <form action="tambah/proses_tambah_paket.php" method="post">
                             <input type="text" hidden name="id_outlet" value="<?=$_POST['id_outlet'];?>">
-                            <select name="jenis" class="form-select mb-3" aria-label="Default select example">
+                            <select name="jenis" class="form-select mb-3" aria-label="Default select example" required>
                                 <option value="kiloan">Kiloan</option>
                                 <option value="selimut">Selimut</option>
                                 <option value="bed_cover">Bed Cover</option>
@@ -22,15 +22,15 @@
                             </select>
                             <div class="input-group flex-nowrap mb-3">
                                 <input type="text" class="form-control" placeholder="Nama Paket"
-                                    aria-describedby="addon-wrapping" name="nama_paket">
+                                    aria-describedby="addon-wrapping" name="nama_paket" required>
                             </div>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">Rp.</span>
                                 <input type="text" class="form-control" placeholder="Harga" aria-label="Username"
-                                    aria-describedby="basic-addon1" name="harga">
+                                    aria-describedby="basic-addon1" name="harga" required>
                             </div>
                             <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-outline-success">Simpan</button>
+                                <button type="submit" class="btn btn-outline-success">Simpan Data</button>
                             </div>
                         </form>
                     </div>

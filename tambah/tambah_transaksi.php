@@ -70,7 +70,7 @@
                     <label for="nama_member" class="form-label mt-3">Cari Nama Member</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="nama_member" id="" placeholder=""
-                            list="nama_pelanggan" autocomplete="off">
+                            list="nama_pelanggan" autocomplete="off" required>
                         <datalist id="nama_pelanggan">
                             <?php
                         $query_member = mysqli_query($koneksi, "SELECT nama FROM tb_member");
@@ -87,7 +87,7 @@
                     <div class="col-sm-2"></div>
                     <div class="col-sm-8">
                         <input type="submit" name="selanjutnya" class="btn btn-outline-success mt-3"
-                            value="simpan"></input>
+                            value="Selanjutnya"></input>
                     </div>
                 </div>
             </div>

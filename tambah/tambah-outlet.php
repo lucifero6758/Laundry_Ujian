@@ -11,31 +11,31 @@
                             <label for="namaoutlet" class="col-sm-2 col-form-label">Nama outlet</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="namaoutlet" id=""
-                                    placeholder="Nama Outlet">
+                                    placeholder="Nama Outlet" required>
                             </div>
                         </div>
                         <div class="form-group row mt-2">
                             <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="alamat" id="" placeholder="Alamat">
+                                <input type="text" class="form-control" name="alamat" id="" placeholder="Alamat"
+                                    required>
                             </div>
                         </div>
                         <div class="form-group row mt-2">
                             <label for="notlp" class="col-sm-2 col-form-label">No Telephone</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="no_telp" id="" placeholder="No Telphone">
+                                <input type="text" class="form-control" name="no_telp" id="" placeholder="No Telphone"
+                                    required>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-2"></div>
-                            <div class="col-sm-8">
-                                <button type="submit" class="btn btn-outline-success mt-4">Simpan Data</button>
-                            </div>
+                        <div class="d-grid gap-2 mt-5">
+                            <button type="submit" class="btn btn-outline-success">Simpan Data</button>
                         </div>
-                    </form>
                 </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

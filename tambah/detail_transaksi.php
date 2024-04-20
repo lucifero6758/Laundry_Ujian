@@ -174,7 +174,7 @@ if($data_transaksi['10']=='baru'){
                 <div class="input-group flex-nowrap mt-2">
                     <span class="input-group-text" id="addon-wrapping">Nama Paket</span>
                     <input type="text" name="nama_paket" list="nama_paket" class="form-control" aria-label="Username"
-                        aria-describedby="addon-wrapping" autocomplete="off">
+                        aria-describedby="addon-wrapping" autocomplete="off" required>
                     <datalist id="nama_paket">
                         <?php
                                     $id_outlet = $data_transaksi['18'];
@@ -190,11 +190,11 @@ if($data_transaksi['10']=='baru'){
                 <div class="input-group flex-nowrap mt-2">
                     <span class="input-group-text" id="addon-wrapping">Qty</span>
                     <input type="number" name="qty" class="form-control" aria-label="Username"
-                        aria-describedby="addon-wrapping" autocomplete="off">
+                        aria-describedby="addon-wrapping" autocomplete="off" required>
                 </div>
                 <div class="form-floating mt-2">
                     <textarea name="keterangan" id="floatingTextarea2" class="form-control" style="height: 100px"
-                        placeholder="Leave a coment here"></textarea>
+                        placeholder="Leave a coment here" required></textarea>
                     <label for="floatingTextarea2">Keterangan</label>
                 </div>
                 <input type="submit" class="btn btn-success mt-3" value="Masukkan Paket" name="pilih_paket">

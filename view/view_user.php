@@ -76,7 +76,7 @@ echo "<p class='username-display'>" . $_COOKIE['username'] . "</p>";
                       if ($_SESSION["username"] != $baris["username"]) {
                     ?>
                         <td class="text-center">
-                            <a href="delete/delete_member.php?id=<?= $baris['id_user'] ?>" class="btn btn-danger"
+                            <a href="delete/delete_user.php?id=<?= $baris['id_user'] ?>" class="btn btn-danger"
                                 onclick="return confirm('Apakah Ingin Menghapus Data?')"><i
                                     class="bi bi-trash-fill text-light"></i></a>
                         </td>

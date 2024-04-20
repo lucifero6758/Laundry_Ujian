@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 
 <body>
@@ -26,42 +26,42 @@
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
 
-                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
+                                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">REGISTER</p>
 
                                     <form class="mx-1 mx-md-4" action="proses_register_enkripsi.php" method="POST">
 
-                                        <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="d-flex flex-row align-items-center mb-3">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="text" id="form3Example1c" class="form-control"
-                                                    name="nama_lengkap" />
                                                 <label class="form-label" for="form3Example1c">Nama lengkap</label>
+                                                <input type="text" id="form3Example1c" class="form-control"
+                                                    name="nama_lengkap" required>
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="d-flex flex-row align-items-center mb-3">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="text" id="form3Example3c" class="form-control"
-                                                    name="username" />
                                                 <label class="form-label" for="form3Example3c">Username</label>
+                                                <input type="text" id="form3Example3c" class="form-control"
+                                                    name="username" required>
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="d-flex flex-row align-items-center mb-3">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="password" id="form3Example4c" class="form-control"
-                                                    name="password" />
                                                 <label class="form-label" for="form3Example4c">Password</label>
+                                                <input type="password" id="form3Example4c" class="form-control"
+                                                    name="password" required>
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="d-flex flex-row align-items-center mb-3">
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="form3Example4cd">Outlet</label>
-                                                <select name="id_outlet" id="" class="form-select">
+                                                <select name="id_outlet" id="" class="form-control" required>
                                                     <?php                               
                                                     $query = mysqli_query($koneksi, "SELECT * FROM tb_outlet");
                                                     while($hasil = mysqli_fetch_assoc($query)){
@@ -76,11 +76,11 @@
                                             </div>
                                         </div>
 
-                                        <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="d-flex flex-row align-items-center mb-3">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <label class="form-label" for="form3Example4c">Level User</label>
-                                                <select name="level_user" id="" class="form-control">
+                                                <select name="level_user" id="" class="form-control" required>
                                                     <option value="kasir">Kasir</option>
                                                     <option value="admin">Admin</option>
                                                     <option value="owner">Owner</option>
@@ -90,7 +90,7 @@
                                         </div>
 
 
-                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <div class="d-grid gap-2 mt-5">
                                             <button type="submit" class="btn btn-outline-primary">Register</button>
                                         </div>
 
@@ -113,8 +113,8 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->

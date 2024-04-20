@@ -1,11 +1,16 @@
+<?php
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
+?>
+
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4">Pengelolaan Laundry</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item active">Dashboard, Selamat Datang <?= $username ?></li>
             </ol>
             <div class="row">
+                <!-- Total Member -->
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-primary text-white mb-4">
                         <div class="card-body" style="padding: 25px;">
@@ -23,14 +28,28 @@
 
                                 ?>
                         <div class="card-footer d-flex align-items-center justify-content-between">
+                            <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'kasir') {
+                                ?>
                             <a class="small text-white stretched-link text-decoration-none"
                                 href="./dashboard.php?page=member">
                                 <h5><?php printf(" %d\n", $rowcount); ?></h5>
                             </a>
+
+                            <?php
+                            } else{
+?>
+
+                            <a class="small text-white stretched-link text-decoration-none">
+                                <h5><?php printf(" %d\n", $rowcount); ?></h5>
+                            </a>
+                            <?php
+                            }?>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Total Transaksi -->
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-primary text-white mb-4">
                         <div class="card-body" style="padding: 25px;">
@@ -56,6 +75,8 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Total Paket -->
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-primary text-white mb-4">
                         <div class="card-body" style="padding: 25px;">
@@ -73,15 +94,30 @@
 
                                 ?>
                         <div class=" card-footer d-flex align-items-center justify-content-between">
+                            <?php if ($_SESSION['role'] == 'admin') {
+                                ?>
                             <a class="small text-white stretched-link text-decoration-none"
                                 href="./dashboard.php?page=paket">
                                 <h5><?php printf(" %d\n", $rowcount); ?></h5>
                             </a>
+
+                            <?php
+                            } else{
+?>
+
+                            <a class="small text-white stretched-link text-decoration-none">
+                                <h5><?php printf(" %d\n", $rowcount); ?></h5>
+                            </a>
+                            <?php
+                            }?>
+
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
                 </div>
 
+
+                <!-- Total Pendapatan -->
                 <div class="col-xl-3 col-md-6">
                     <div class="card bg-primary text-white mb-4">
                         <div class="card-body" style="padding: 25px;">
