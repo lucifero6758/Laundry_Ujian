@@ -33,7 +33,8 @@ $baris_paket = mysqli_fetch_assoc($query_paket);
                     <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
                         name="harga" value="<?=$baris_paket['harga']?>" required>
                 </div>
-                <button type="submit" class="btn btn-success mt-4">Simpan</button>
+                <button type="submit" class="btn ms-auto btn-success mt-4">Simpan Data
+                    Paket</button>
             </div>
         </form>
     </div>

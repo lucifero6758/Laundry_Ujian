@@ -1,7 +1,11 @@
 <?php
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
 ?>
-
+<style>
+.card-bg {
+    background: #0077b6;
+}
+</style>
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
@@ -12,7 +16,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
             <div class="row">
                 <!-- Total Member -->
                 <div class="col-xl-3 col-md-6">
-                    <div class="card bg-primary text-white mb-4">
+                    <div class="card card-bg text-white mb-4">
                         <div class="card-body" style="padding: 25px;">
                             <h3>TOTAL MEMBER</h3>
                         </div>
@@ -51,7 +55,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
 
                 <!-- Total Transaksi -->
                 <div class="col-xl-3 col-md-6">
-                    <div class="card bg-primary text-white mb-4">
+                    <div class="card card-bg text-white mb-4">
                         <div class="card-body" style="padding: 25px;">
                             <h3>DATA TRANSAKSI</h3>
                         </div>
@@ -78,7 +82,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
 
                 <!-- Total Paket -->
                 <div class="col-xl-3 col-md-6">
-                    <div class="card bg-primary text-white mb-4">
+                    <div class="card card-bg text-white mb-4">
                         <div class="card-body" style="padding: 25px;">
                             <h3>TOTAL PAKET</h3>
                         </div>
@@ -119,27 +123,27 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
 
                 <!-- Total Pendapatan -->
                 <div class="col-xl-3 col-md-6">
-                    <div class="card bg-primary text-white mb-4">
+                    <div class="card card-bg text-white mb-4">
                         <div class="card-body" style="padding: 25px;">
                             <h3>TOTAL PENDAPATAN</h3>
                         </div>
                         <?php
                     // Query SQL untuk menghitung jumlah transaksi
-$sql = "SELECT SUM(total_harga) AS total_transaksi FROM tb_detail_transaksi";
+                    $sql = "SELECT SUM(total_harga) AS total_transaksi FROM tb_detail_transaksi";
 
-// Eksekusi query
-$result = mysqli_query($koneksi, $sql);
+                    // Eksekusi query
+                    $result = mysqli_query($koneksi, $sql);
 
-// Periksa apakah query berhasil dieksekusi
-if($result) {
-    // Ambil nilai jumlah transaksi dari hasil query
-    $row = mysqli_fetch_assoc($result);
-    $total_transaksi = $row['total_transaksi'];
-} else {
-    // Jika query gagal dieksekusi, atur total transaksi menjadi 0
-    $total_transaksi = 0;
-}
-?>
+                    // Periksa apakah query berhasil dieksekusi
+                    if($result) {
+                        // Ambil nilai jumlah transaksi dari hasil query
+                        $row = mysqli_fetch_assoc($result);
+                        $total_transaksi = $row['total_transaksi'];
+                    } else {
+                        // Jika query gagal dieksekusi, atur total transaksi menjadi 0
+                        $total_transaksi = 0;
+                    }
+                    ?>
                         <div class=" card-footer d-flex align-items-center justify-content-between">
                             <a class="small text-white stretched-link text-decoration-none">
                                 <h5>Rp.
@@ -163,10 +167,11 @@ if($result) {
 
 
 
+<!-- CHART JS -->
 
 <div
     style="display: flex; justify-content: center; gap: 1px; margin-right: 100px; margin-left: 100px; margin-top: 20px; margin-bottom: 40px; border: 1px solid #ccc;">
-    <div style="width: 55%;">
+    <div style="width: 60%;">
         <div style="text-align: center; font-weight: bold; margin-top: 10px;">CHART JUMLAH TRANSAKSI BULAN INI</div>
         <canvas id="myChart" style="width: 100%; height: 350px; border: 1px solid #ccc;"></canvas>
     </div>
@@ -190,11 +195,13 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 // Chart PAI
 
+// Query untuk menghitung total yang sudah dibayar
 $query_dibayar = "SELECT COUNT(*) as total_dibayar FROM tb_transaksi WHERE dibayar = 'dibayar'";
 $result_dibayar = mysqli_query($koneksi, $query_dibayar);
 $row_dibayar = mysqli_fetch_assoc($result_dibayar);
 $total_dibayar = $row_dibayar['total_dibayar'];
 
+// Query untuk menghitung total yang sudah belum dibayar
 $query_belum_dibayar = "SELECT COUNT(*) as total_belum_dibayar FROM tb_transaksi WHERE dibayar = 'belum_dibayar'";
 $result_belum_dibayar = mysqli_query($koneksi, $query_belum_dibayar);
 $row_belum_dibayar = mysqli_fetch_assoc($result_belum_dibayar);
@@ -216,8 +223,8 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: 'Jumlah Transaksi',
             data: <?php echo json_encode($jumlah_transaksi); ?>,
-            backgroundColor: '#90e0ef',
-            borderColor: '#90e0ef',
+            backgroundColor: '#00B4D8',
+            borderColor: '#00B4D8',
             borderWidth: 1
         }]
     },
@@ -240,8 +247,8 @@ var myPieChart = new Chart(ctx2, {
         datasets: [{
             data: [<?php echo $total_dibayar; ?>, <?php echo $total_belum_dibayar; ?>],
             backgroundColor: [
-                '#4CBB17',
-                '#D5212E'
+                '#0C6B37',
+                '#BC2023'
             ],
             borderColor: [
                 'rgba(54, 162, 235, 1)',

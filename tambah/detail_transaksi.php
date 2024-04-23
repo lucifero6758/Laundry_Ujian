@@ -5,6 +5,14 @@ if (@$_GET['idtransaksi']) {
 } elseif (@$_SESSION['idtransaksi']) {
     $idtransaksi = $_SESSION['idtransaksi'];
 }
+// tidak menampilkan Navbar saat di print
+echo "<style>
+    @media print {
+        .navbar {
+            display: none !important;
+        }
+    }
+</style>";
 
 $data_transaksi = mysqli_fetch_row(mysqli_query($koneksi, "SELECT * FROM tb_transaksi INNER JOIN tb_member ON tb_transaksi.id_member = tb_member.id_member INNER JOIN tb_outlet ON tb_transaksi.id_outlet = tb_outlet.id_outlet INNER JOIN tb_user ON tb_transaksi.id_user = tb_user.id_user WHERE tb_transaksi.id_transaksi = '$idtransaksi'"));
 
@@ -46,27 +54,35 @@ if (@$_POST['tombol_biaya_tambahan']) {
 
 if($data_transaksi['10']=='baru'){
     $progress = "BARU";
-    $warna_persen = "danger";
+    $warna_persen = "#f78104";
     $lebar_persentase = "25%";
     $warna_text = "fs-6";
 }else if($data_transaksi['10']=='proses'){
     $progress = "MASIH DI PROSES";
-    $warna_persen = "warning";
+    $warna_persen = "#FAAB36";
     $lebar_persentase = "59%";
     $warna_text = "fs-6";
 }else if($data_transaksi['10']=='selesai'){
     $progress = "SELESAI DI CUCI";
-    $warna_persen = "info";
+    $warna_persen = "#249EA0";
     $lebar_persentase = "75%";
     $warna_text = "fs-6";
 }else if($data_transaksi['10']=='diambil'){
     $progress = "SUDAH DI AMBIL";
-    $warna_persen = "success";
+    $warna_persen = "#008083";
     $lebar_persentase = "100%";
     $warna_text = "fs-6";
 }
 
 ?>
+<style>
+/* Agar element yang tidak di inginkan tidak terprint */
+@media print {
+    .tidak_print {
+        opacity: 0;
+    }
+}
+</style>
 <br>
 
 <!-- <h3>
@@ -77,8 +93,8 @@ if($data_transaksi['10']=='baru'){
         <div class="col-12 tidak_print">
             <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25"
                 aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar progress-bar-striped bg-<?= $warna_persen ?> <?= $warna_text ?>"
-                    style="width: <?= $lebar_persentase ?>">
+                <div class="progress-bar progress-bar-striped <?= $warna_text ?>"
+                    style="width: <?= $lebar_persentase ?>; background-color: <?= $warna_persen ?>;">
                     <?= $progress ?>
                 </div>
             </div>
@@ -115,7 +131,7 @@ if($data_transaksi['10']=='baru'){
                                 <td>
                                     <?php
                                 $data_transaksi['5'];
-                                $pecah_string_tanggal = explode(" ", $data_transaksi['5']);
+                                $pecah_string_tanggal = explode(" ", $data_transaksi['5']); 
                                 $pecah_string_hari = explode("-", $pecah_string_tanggal['0']);
                                 $pecah_string_jam = explode(":", $pecah_string_tanggal['1']);
                                 echo "Tanggal : " . $pecah_string_hari['2'] . "-" . $pecah_string_hari['1'] . "-" . $pecah_string_hari['0'];

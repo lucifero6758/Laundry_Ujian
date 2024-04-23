@@ -16,13 +16,17 @@ include "koneksi.php";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+<style>
+.navbar-color {
+    background-color: #03045e;
+}
+</style>
 
 <body>
     <!-- awal navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg navbar-color navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard.php?page=homepage"><img src="../images/logo.png" width="90px" alt=""
-                    srcset="">
+            <a class="navbar-brand" href="dashboard.php?page=homepage">
                 <i class="bi bi-basket2-fill"></i> D-Laundry</a>
             <button class="navbar-toggler bg-body-danger" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavDropdown" aria-controls="navbarSupportedContent" aria-expanded="false"

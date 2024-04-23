@@ -15,7 +15,7 @@ $tgl_akhir = $_POST['masukkan_tgl_akhir'];
     }
 
     .outlet {
-        background-color: #5356FF;
+        background-color: #03045e;
     }
 
     .text-white {
