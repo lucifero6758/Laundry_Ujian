@@ -350,6 +350,25 @@ if($data_transaksi['10']=='baru'){
                         ?>
                         </td>
                     </tr>
+                    <!-- Tombol bayar Sekarang -->
+                    <form action="dashboard.php?page=detail_transaksi" method="POST">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="text-end pt-4">
+                                <a onclick="window.print()" type="submit" class="btn mt-3 btn-info tidak_print"
+                                    name="cetak">Cetak Nota</a>
+                            </td>
+                            <td class="text-end pt-4">
+                                <input type="submit" class="btn mt-3 btn-warning tidak_print"
+                                    <?php if ($data_transaksi['11'] == 'dibayar') echo "hidden"; ?>
+                                    value="Bayar Sekarang?" name="bayar_sekarang"
+                                    onclick="return confirm('Apakah Mau Bayar Sekarang?')">
+                            </td>
+                        </tr>
+                    </form>
+                    <!-- Tombol bayar Sekarang -->
                     <?php
             }
             ?>
@@ -360,23 +379,7 @@ if($data_transaksi['10']=='baru'){
 
 
 
-            <!-- Tombol bayar Sekarang -->
-            <form action="dashboard.php?page=detail_transaksi" method="POST">
-                <table class="mt-5 mx-5" align="right">
-                    <tr>
-                        <td>
-                            <a onclick="window.print()" type="submit" class="btn mt-3 btn-info tidak_print"
-                                name="cetak">Cetak Nota</a>
-                        </td>
-                        <td>
-                            <input type="submit" class="btn mt-3 btn-warning tidak_print"
-                                <?php if ($data_transaksi['11'] == 'dibayar') echo "hidden"; ?> value="Bayar Sekarang?"
-                                name="bayar_sekarang" onclick="return confirm('Apakah Mau Bayar Sekarang?')">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-            <!-- Tombol bayar Sekarang -->
+
         </div>
 
     </div>

@@ -1,5 +1,11 @@
 <?php
     include_once "../koneksi.php";
+    session_start();
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        echo '<script>alert("Selain Admin tidak bisa masuk ke halaman register");';
+        echo 'window.location.href = "../dashboard.php?page=homepage";</script>';
+    exit;
+    }
 ?>
 <!doctype html>
 <html lang="en">

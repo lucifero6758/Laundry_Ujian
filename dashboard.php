@@ -2,6 +2,10 @@
 session_start();
 include "koneksi.php";
 // echo $_SESSION['role']
+if (!isset($_SESSION['username'])) {
+    echo "<script>alert('Harus Login Terlebih Dahulu'); window.location.href='login.php';</script>";
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +28,7 @@ include "koneksi.php";
 
 <body>
     <!-- awal navbar -->
-    <nav class="navbar navbar-expand-lg navbar-color navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-color navbar-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="dashboard.php?page=homepage">
                 <i class="bi bi-basket2-fill"></i> D-Laundry</a>

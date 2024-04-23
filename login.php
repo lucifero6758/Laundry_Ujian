@@ -53,9 +53,6 @@
                                         <div class="d-grid gap-2 mb-5">
                                             <button class="btn btn-outline-dark" type="submit">Login</button>
                                         </div>
-                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a
-                                                href="register/register.php" style="color: #393f81;">Register here</a>
-                                        </p>
                                     </form>
 
                                 </div>
